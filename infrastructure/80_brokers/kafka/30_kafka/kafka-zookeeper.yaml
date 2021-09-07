@@ -71,17 +71,17 @@ spec:
             group: clusters
             component: kafka
         securityContext:
-          runAsNonRoot: true
+         runAsNonRoot: true
           # runAsUser: 1001
           # runAsGroup: 1001
           # fsGroup: 1001
-      kafkaContainer:
-        securityContext:
-          runAsNonRoot: true
+     kafkaContainer:
+       securityContext:
+         runAsNonRoot: true
           # runAsUser: 1001
           # runAsGroup: 1001
           # fsGroup: 1001
-          readOnlyRootFilesystem: false
+         readOnlyRootFilesystem: false
     config:
       background.threads: 12
       default.replication.factor: 1
