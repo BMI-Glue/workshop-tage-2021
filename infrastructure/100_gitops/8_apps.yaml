@@ -27,9 +27,9 @@ spec:
       - prune: true
       - selfHeal: true
     syncOptions:
-      - CreateNamespace=false
-      - ApplyOutOfSyncOnly=true
-      - PrunePropagationPolicy=foreground
+      CreateNamespace=false
+      ApplyOutOfSyncOnly=true
+      PrunePropagationPolicy=foreground
     retry:
       limit: 5
       backoff:
