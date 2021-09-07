@@ -7,32 +7,32 @@ metadata:
   name: apps
   namespace: argocd
   labels:
-    - app: argocd
-    - domain: gitops
-    - group: app-of-apps
-    - feature: apps
+    app: argocd
+    domain: gitops
+    group: app-of-apps
+    feature: apps
   annotations:
-    - argocd.argoproj.io/sync-wave: "8"
+    argocd.argoproj.io/sync-wave: "8"
 spec:
   project: in-cluster
   source:
-    - repoURL: https://github.com/BMI-Glue/workshop-tage-2021
-    - targetRevision: main
-    - path: infrastructure/100_gitops/8_apps
+    repoURL: https://github.com/BMI-Glue/workshop-tage-2021
+    targetRevision: main
+    path: infrastructure/100_gitops/8_apps
   destination:
-    - name: in-cluster
-    - namespace: argocd
+    name: in-cluster
+    namespace: argocd
   syncPolicy:
     automated:
-      - prune: true
-      - selfHeal: true
+      prune: true
+      selfHeal: true
     syncOptions:
-      CreateNamespace=false
-      ApplyOutOfSyncOnly=true
-      PrunePropagationPolicy=foreground
+      - CreateNamespace=false
+      - ApplyOutOfSyncOnly=true
+      - PrunePropagationPolicy=foreground
     retry:
       limit: 5
       backoff:
-        - duration: 5s
-        - factor: 2
-        - maxDuration: 5m
+        duration: 5s
+        factor: 2
+        maxDuration: 5m
